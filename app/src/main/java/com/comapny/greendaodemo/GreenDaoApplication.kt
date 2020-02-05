@@ -3,9 +3,7 @@ package com.comapny.greendaodemo
 import android.app.Application
 import android.content.Context
 
-/**
- * Created by xingzhi on 2020-02-03.
- */
+
 class GreenDaoApplication : Application() {
 
     companion object {

@@ -14,17 +14,10 @@
         app:layout_constraintTop_toTopOf="parent"
         />
     <Button
-        android:id="@+id/btn_repeat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="新增重复数据"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add"
-        />
-    <Button
         android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btn_repeat"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add"
         android:text="删除"/>
     <Button
         android:id="@+id/btn_update"
@@ -38,6 +31,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/btn_update"
         android:text="查询"/>
+
+    <Button
+        android:id="@+id/btn_query_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_query"
+        android:text="查询All"/>
+
+
+
 
 
 
