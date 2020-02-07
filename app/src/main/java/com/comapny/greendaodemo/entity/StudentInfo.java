@@ -29,12 +29,15 @@ public class StudentInfo {
     @Property(nameInDb = "updated_time")//更新时间
     private String updateTime;
 
-    @Generated(hash = 319195329)
-    public StudentInfo(Long id, String perNo, String name, String updateTime) {
+    private int sex ;
+
+    @Generated(hash = 1235426908)
+    public StudentInfo(Long id, String perNo, String name, String updateTime, int sex) {
         this.id = id;
         this.perNo = perNo;
         this.name = name;
         this.updateTime = updateTime;
+        this.sex = sex;
     }
 
     @Generated(hash = 2016856731)
@@ -71,6 +74,14 @@ public class StudentInfo {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public int getSex() {
+        return this.sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 
 }

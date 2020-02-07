@@ -17,7 +17,7 @@ class GreenDaoApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = GreenDaoApplication()
-        val openHelper = DaoMaster.DevOpenHelper(this, "student-info.db")//数据库名称
+        val openHelper = DbOpenHelper(this, "student-info.db")//数据库名称
         val readableDb = openHelper.writableDb
 
         daoSession = DaoMaster(readableDb).newSession()

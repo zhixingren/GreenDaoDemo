@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
         val studentInfo = StudentInfo()
         studentInfo.perNo = count++.toString()
         studentInfo.name = "刘备$count"
+        studentInfo.sex = 2
         studentInfo.updateTime = (System.currentTimeMillis()).toString()
         studentInfoDao.insertOrReplace(studentInfo)
     }
@@ -93,6 +94,8 @@ class MainActivity : AppCompatActivity() {
             Log.e("no",it.perNo)
             Log.e("name",it.name)
             Log.e("time",it.updateTime)
+            Log.e("sex",it.sex.toString())
+
         }
         pageNo ++
     }
@@ -114,6 +117,8 @@ class MainActivity : AppCompatActivity() {
             Log.e("no",it.perNo)
             Log.e("name",it.name)
             Log.e("time",it.updateTime)
+            Log.e("sex",it.sex.toString())
+
         }
     }
 

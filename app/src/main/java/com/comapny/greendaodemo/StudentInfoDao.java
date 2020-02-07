@@ -28,6 +28,7 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
         public final static Property PerNo = new Property(1, String.class, "perNo", false, "PER_NO");
         public final static Property Name = new Property(2, String.class, "name", false, "studentName");
         public final static Property UpdateTime = new Property(3, String.class, "updateTime", false, "updated_time");
+        public final static Property Sex = new Property(4, int.class, "sex", false, "SEX");
     }
 
 
@@ -46,7 +47,8 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"PER_NO\" TEXT," + // 1: perNo
                 "\"studentName\" TEXT," + // 2: name
-                "\"updated_time\" TEXT);"); // 3: updateTime
+                "\"updated_time\" TEXT," + // 3: updateTime
+                "\"SEX\" INTEGER NOT NULL );"); // 4: sex
         // Add Indexes
         db.execSQL("CREATE UNIQUE INDEX " + constraint + "IDX_student_info_PER_NO ON \"student_info\"" +
                 " (\"PER_NO\" ASC);");
@@ -81,6 +83,7 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
         if (updateTime != null) {
             stmt.bindString(4, updateTime);
         }
+        stmt.bindLong(5, entity.getSex());
     }
 
     @Override
@@ -106,6 +109,7 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
         if (updateTime != null) {
             stmt.bindString(4, updateTime);
         }
+        stmt.bindLong(5, entity.getSex());
     }
 
     @Override
@@ -119,7 +123,8 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // perNo
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // name
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // updateTime
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // updateTime
+            cursor.getInt(offset + 4) // sex
         );
         return entity;
     }
@@ -130,6 +135,7 @@ public class StudentInfoDao extends AbstractDao<StudentInfo, Long> {
         entity.setPerNo(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setUpdateTime(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setSex(cursor.getInt(offset + 4));
      }
     
     @Override
